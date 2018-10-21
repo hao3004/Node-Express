@@ -1,4 +1,9 @@
-h1 Hello coder Tokyo #{name}
-a(href="/users") User List
-br
-a(href="/users/create") Create a new user
+extends ./layouts/main
+
+block home
+    h1 Hello coder Tokyo #{name}
+    a(href="/users") User List
+    br
+    a(href="/users/create") Create a new user
+    br
+    img(src="/images/logo.png")
