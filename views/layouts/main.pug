@@ -1,11 +1,32 @@
 html
     head
-        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO")
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.4.1/css/all.css", integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz", crossorigin="anonymous")
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css", integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO", crossorigin="anonymous")
         link(rel="stylesheet", href="/styles/style.css")
     body
-        block home
-        block users
-        block create
-        block details
-        footer
-            p Copyright by Haolt
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+            a.navbar-brand(href='#') 
+                img(alt="logo", src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAWlBMVEX////f27MAAACKjnS5udthY3O/vKVUVWhiZVDfZHJ9eoXf3+2kRVCNn1pHUSqpZCw7S1NERjaFQjWFWky+m2ros0qoXHKWoatSNx2OkpHb3ubTtanQwEnBc2RvYUDlAAACM0lEQVRIiZXWi3qrIAwAYAwi1M67R9eL7/+aS4IgOOg86erAj39J0LoKUeLrP+NErviYhDMIl0WTUxI/BRksiya5nCBjkjURUWArKgWoC4QWEQEDeM7NMkZ4Q6I1LSCCvAiCOoamaZumgU/tR0SjYNKCvkikbK3A0RVCHZNpWha5XspIGGPQMKBh0kR3izSifBhOsA8/EcDopSkB1w0Y+7Cn85+yDObxEJgFheTh8EdhoHrby14ZDvtMM76uQZ7DDKnKgrJ+CYxkaTuw14TK8bFfm3wSxaAIglH+1iQRA4eyO0BX/gwYJUlpP4JJkTGWeCHlcWQTELcVnvAy2iV35DOWcPHwetmrxJ9zJLzs+Os8wYNRaGgN3G63L3xbA0pXx+IwpKw0pSmBl9P7Bo6kuy8KS1C4QMOFOeJb8CUyQbF+cywLKtiz+LaPA52z5Gvt5SQlkWWZKC33EjZ/bMBeWC/naZ6nDsHCT1Sla7e6PPVfa/vQ7fv3NHXvbprB3mG+fews1b6AtX8jeM9WXCAw9+OIZBzdvQC6qtKkqrQtZNzGruvG7SB1jtQ72bZxnudxc+Zvgmn+UYy/s5x3zBMBTPxtHZAiRwRgL8EHAUnSVCGpdR0QlUlT7VeSF72mV0iUTqXBLVZ5kjIsDrKua/hP3pqq4Jf7FQkBz/UZPjrYEApCRyIkJcWdDCKKura/6Qzc/ReJ55N+WNwpcM8Ur6FlsA/oVGDgeCpZc8RpkvryVX4OIX4ADUQd7VI1ucMAAAAASUVORK5CYII=")
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarSupportedContent.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item.active
+                        a.nav-link(href='#')
+                        | Home 
+                        span.sr-only (current)
+                    li.nav-item
+                        a.nav-link(href='#') Link
+                    li.nav-item
+                        a.nav-link.disabled(href='#') Disabled
+                form.form-inline.my-2.my-lg-0
+                input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+                button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+
+        .container.pt-5
+            block home
+            block users
+            block create
+            block details
+            footer
+                p Copyright by Haolt

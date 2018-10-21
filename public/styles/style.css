@@ -2,3 +2,13 @@
     color: #333;
     font-weight: 600;
 }
+
+.users-table tr th,
+.users-table tr td {
+    color: aliceblue !important
+}
+
+.user-list-title {
+    display: inline-block;
+    color: teal;
+}

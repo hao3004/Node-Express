@@ -1,17 +1,24 @@
 extends ../layouts/main
 
 block users
-    h1 User
-
-    form(action="/users/search", method="GET")
-        input(type="text", name="keyw")
-        button(class="btn btn-success") Search
-
-    ul
-    each user in users
-        li
-            span= user.name
-            span &nbsp;
-            a(href='users/' + user.id ) View
-
-    a(href="/users/create") Create a new one !
+    div.text-center
+        img(src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAQlBMVEX////k38mnr6hERERte25YYlk8jci/to2MnI3f399odGnK1cuAsyqkpKQsND1IZRdDbItdhRpIT0nFxcXS2dN9i34uC+bGAAABgklEQVRIib3W0XbCIAwA0EoIrdW12rr//9UFCBQqBHxwmVh0uYVED8dh+Mcw5mHMZ8CRfmRMJJ3IZMQbSP4PNRGJNaCOPNBvhnKWZRmI+GsPobHQePDVk5iXTN8i2/7HBJTSnJhMv0Dcdu79xCbal/f+Wmzi3cbz+Sz0uEbWdSWxCtuKBEIxyioVS/FPAAVir6Buw035oJk14U7ZmnwbO5SiV0q9Xi83o3Xc26fuAfCi9Ay8CiL6VTS4t0+CukoPx0CdQrtMCJODcNAS6GL2QbNt2zScRX7r+Xr9SR/7jtpH3u/MIO6R7LgFcf6I8hJmDDFrXRG+uaUQSIowDUHEzSFekhgDEgiDicdlHLFB0KdOOLlBczYlcghKRf6j+Vg3gUw2NQTNJ5lklccOeNMg0yVrQIskxfsGNElafGyATNLiuQFdtXSWb41Aqp9+ydQXqRFhXzUjiTIRFykbWRxf5rOQTvM30xLBJF/+pgiHRnZYgCyG46QBPpCbgJH9hQG/UAB/GysSHswBHKMAAAAASUVORK5CYII=")
+        h1.user-list-title User List
+        img(src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAQlBMVEX////k38mnr6hERERte25YYlk8jci/to2MnI3f399odGnK1cuAsyqkpKQsND1IZRdDbItdhRpIT0nFxcXS2dN9i34uC+bGAAABgklEQVRIib3W0XbCIAwA0EoIrdW12rr//9UFCBQqBHxwmVh0uYVED8dh+Mcw5mHMZ8CRfmRMJJ3IZMQbSP4PNRGJNaCOPNBvhnKWZRmI+GsPobHQePDVk5iXTN8i2/7HBJTSnJhMv0Dcdu79xCbal/f+Wmzi3cbz+Sz0uEbWdSWxCtuKBEIxyioVS/FPAAVir6Buw035oJk14U7ZmnwbO5SiV0q9Xi83o3Xc26fuAfCi9Ay8CiL6VTS4t0+CukoPx0CdQrtMCJODcNAS6GL2QbNt2zScRX7r+Xr9SR/7jtpH3u/MIO6R7LgFcf6I8hJmDDFrXRG+uaUQSIowDUHEzSFekhgDEgiDicdlHLFB0KdOOLlBczYlcghKRf6j+Vg3gUw2NQTNJ5lklccOeNMg0yVrQIskxfsGNElafGyATNLiuQFdtXSWb41Aqp9+ydQXqRFhXzUjiTIRFykbWRxf5rOQTvM30xLBJF/+pgiHRnZYgCyG46QBPpCbgJH9hQG/UAB/GysSHswBHKMAAAAASUVORK5CYII=")
+    form(action="/users/search", method="GET", class="float-left")
+        .input-group.mb-3
+            input.form-control(type='text', name="keyw", placeholder='Name', value=keyw?keyw:'', aria-describedby='basic-addon2')
+            .input-group-append
+                button.btn.btn-outline-primary(type='button') Search
+    a(href="/users/create", class="float-right") Create a new one !
+    table.table.table-striped.table-dark.table-bordered.table-hover.users-table
+        tr
+            th Name
+            th Phone
+            th Option
+        each user in users
+            tr
+                td= user.name
+                td= user.phone
+                td
+                    a(href='users/' + user.id, class="btn btn-success" ) View
