@@ -16,6 +16,8 @@ app.set('view engine', 'pug');
 // views = folder contains files
 app.set('views', './views');
 
+const shortid = require('shortid');
+
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const adapter = new FileSync('db.json');
@@ -55,12 +57,22 @@ app.get('/users/create', (req, res) => {
 })
 
 app.post('/users/create', (req, res) => {
+    req.body.id = shortid.generate();
     db.get('users').push(req.body).write();
     // res.render('users/index', {
     //     users: users
     // });
     // hoặc
     res.redirect('/users');
+});
+
+// keyword: express js routing 
+app.get('/users/:id', (req, res) => {
+    var id = req.params.id;
+    var user = db.get('users').find({ id: id}).value();
+    res.render('users/details', {
+        user: user
+    });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
