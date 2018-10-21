@@ -1,0 +1,10 @@
+h1 Create User
+
+form(action="/users/create", method="POST")
+    .form-group
+        label(for="name") Name
+        input(name="name", type="text")
+    .form-group
+        label(for="phone") Phone
+        input(name="phone", type="tel")
+    button Create
