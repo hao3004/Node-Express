@@ -1,14 +1,17 @@
-h1 User
+extends ../layouts/main
 
-form(action="/users/search", method="GET")
-    input(type="text", name="keyw")
-    button Search
+block index
+    h1 User
 
-ul
-each user in users
-    li
-        span= user.name
-        span &nbsp;
-        a(href='users/' + user.id ) View
+    form(action="/users/search", method="GET")
+        input(type="text", name="keyw")
+        button(class="btn btn-success") Search
 
-a(href="/users/create") Create a new one !
+    ul
+    each user in users
+        li
+            span= user.name
+            span &nbsp;
+            a(href='users/' + user.id ) View
+
+    a(href="/users/create") Create a new one !

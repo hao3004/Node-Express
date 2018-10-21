@@ -1,8 +1,11 @@
-h1 Detail User
-p
-    b Name  
-    span= user.name
+extends ../layouts/main
 
-a(href="/users") See List
-br
-a(href="/users/create") Create a new one !
+block details
+    h1 Detail User
+    p
+        b Name  
+        span= user.name
+
+    a(href="/users") See List
+    br
+    a(href="/users/create") Create a new one !
