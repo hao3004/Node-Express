@@ -18,7 +18,8 @@ app.set('views', './views');
 
 var users = [
     { name: 'Hao', id: 1},
-    { name: 'An', id: 2} 
+    { name: 'An', id: 2},
+    { name: 'Tung', id: 3}
 ];
 // lưu trong memory, nghĩa là khi load lại server còn mình từng này ;v
 
