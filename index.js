@@ -16,11 +16,15 @@ app.set('view engine', 'pug');
 // views = folder contains files
 app.set('views', './views');
 
-var users = [
-    { name: 'Hao', id: 1},
-    { name: 'An', id: 2},
-    { name: 'Tung', id: 3}
-];
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const adapter = new FileSync('db.json');
+const db = low(adapter);
+
+// Set some defaults (required if your JSON file is empty)
+db.defaults({ users: []})
+  .write();
+
 // lưu trong memory, nghĩa là khi load lại server còn mình từng này ;v
 
 app.get('/', (req, res) => res.render('index', {
@@ -30,16 +34,16 @@ app.get('/', (req, res) => res.render('index', {
 
 app.get('/users', (req, res) => 
     res.render('users/index', {
-        users: users
+        users: db.get('users').value()
     })
 );
 
 app.get('/users/search', (req, res) => {
     //res.render();
     keyw = req.query.keyw;
-    var searchResults = users.filter((user) => {
+    var searchResults = db.get('users').filter((user) => {
         return user.name.toLowerCase().indexOf(keyw.toLowerCase()) !== -1;
-    })
+    }).write();
     res.render('users/index', {
         users: searchResults
     })
@@ -51,7 +55,7 @@ app.get('/users/create', (req, res) => {
 })
 
 app.post('/users/create', (req, res) => {
-    users.push(req.body);
+    db.get('users').push(req.body).write();
     // res.render('users/index', {
     //     users: users
     // });

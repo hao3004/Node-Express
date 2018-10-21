@@ -4,7 +4,7 @@
   "description": "��#\u0000 \u0000N\u0000o\u0000d\u0000e\u0000-\u0000E\u0000x\u0000p\u0000r\u0000e\u0000s\u0000s\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "start":"nodemon index.js",
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "lowdb": "^1.0.0",
     "pug": "^2.0.3"
   },
   "devDependencies": {
