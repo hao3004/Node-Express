@@ -21,6 +21,7 @@ app.set('views', './views');
 const db = require('./db');
 
 const userRoutes = require('./routes/user.route');
+const authRoutes = require('./routes/auth.route');
 
 app.get('/', (req, res) => res.render('index', {
     name: 'Lang Hoai An' // gửi data qua đây, bên kia sử dụng = cách: #{name}
@@ -28,6 +29,7 @@ app.get('/', (req, res) => res.render('index', {
 ));
 
 app.use('/users', userRoutes);
+app.use('/auth', authRoutes);
 
 app.use(express.static('public'));
 

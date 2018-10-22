@@ -24,7 +24,7 @@ module.exports = {
     })
     },
     getCreate: (req, res) => {
-        console.log(req.cookies);
+        // console.log(req.cookies);
         res.render('users/create');
         // link trong folder
     },

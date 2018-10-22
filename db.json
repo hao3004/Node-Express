@@ -23,27 +23,9 @@
     {
       "name": "BG",
       "phone": "435749789687",
-      "id": "IRq2EBCQP"
-    },
-    {
-      "name": "Lang An",
-      "phone": "123456656",
-      "id": "oZP4Ifvo4"
-    },
-    {
-      "name": "Chu minh quy",
-      "phone": "966828410",
-      "id": "9erlaN6Wj"
-    },
-    {
-      "name": "Hao Long",
-      "phone": "12312312312",
-      "id": "O-kRajHT_"
-    },
-    {
-      "name": "Hao Le",
-      "phone": "12312312312",
-      "id": "vKWjzJDBB"
+      "id": "IRq2EBCQP",
+      "email": "lehao300498@gmail.com",
+      "password": "123123"
     }
   ]
 }
