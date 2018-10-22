@@ -17,15 +17,20 @@ module.exports = {
     var searchResults = db.get('users').filter((user) => {
         return user.name.toLowerCase().indexOf(keyw.toLowerCase()) !== -1;
     }).write();
+    // console.log(searchResults);
     res.render('users/index', {
         users: searchResults,
         keyw: keyw
     })
     },
-
+    getCreate: (req, res) => {
+        console.log(req.cookies);
+        res.render('users/create');
+        // link trong folder
+    },
     create: (req, res) => {
         req.body.id = shortid.generate();
-        console.log(res.locals);
+        // console.log(res.locals);
         db.get('users').push(req.body).write();
         // res.render('users/index', {
         //     users: users

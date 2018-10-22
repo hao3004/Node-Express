@@ -6,11 +6,12 @@ const app = express();
 const port = 3000;
 
 const bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 app.use(bodyParser.json()); 
 // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); 
 // for parsing application/x-www-form-urlencoded
-
+app.use(cookieParser());
 const pug = require('pug');
 app.set('view engine', 'pug');
 // views = folder contains files

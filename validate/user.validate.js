@@ -17,7 +17,7 @@ module.exports = {
             return;
         }
 
-        res.locals.success = true;
+        // res.locals.success = true;
         next();
 
     }
