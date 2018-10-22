@@ -3,6 +3,7 @@ const router = express.Router();
 
 const db = require('../db');
 var controller = require('../controllers/user.controller');
+const validate = require('../validate/user.validate');
 
 router.get('/', controller.index );
 
@@ -13,9 +14,11 @@ router.get('/create', (req, res) => {
     // link trong folder
 })
 
-router.post('/create', controller.create);
+router.post('/create', validate.create, controller.create);
 
 // keyword: express js routing 
 router.get('/:id', controller.details);
+
+//router.get('/test', );
 
 module.exports = router;

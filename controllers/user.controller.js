@@ -1,6 +1,9 @@
 const db = require('../db');
 const shortid = require('shortid');
 
+/*
+    Middleware là funct nhận vào 3 tham số (req, res, next)
+*/
 module.exports = {
 
     index: (req, res) => 
@@ -22,22 +25,7 @@ module.exports = {
 
     create: (req, res) => {
         req.body.id = shortid.generate();
-        errors = [];
-        if (!req.body.name) {
-            errors.push('Name is required.');
-        }
-
-        if (!req.body.phone) {
-            errors.push('Phone is required.');
-        }
-        
-        if (errors.length) {
-            res.render('users/create', {
-                errors: errors,
-                values: req.body
-            });
-            return;
-        }
+        console.log(res.locals);
         db.get('users').push(req.body).write();
         // res.render('users/index', {
         //     users: users
