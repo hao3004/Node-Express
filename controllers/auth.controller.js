@@ -1,3 +1,4 @@
+const md5 = require('md5');
 const db = require('../db');
 
 /*
@@ -20,9 +21,11 @@ module.exports = {
             });
             return;
         }
+
+        hashedPassword = md5(password);
         // tới đoạn này là biết 
         // tồn tại email vừa nhập rồi, h đi so password
-        if (password !== user.password) {
+        if (hashedPassword !== user.password) {
             res.render('auth/login', {
                 errors: ['Password is wrong.'],
                 values: req.body
