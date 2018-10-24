@@ -1,3 +1,4 @@
+require('dotenv').config();
 // require it
 const express = require('express');
 // this funct return a new app, as same: app = new app
