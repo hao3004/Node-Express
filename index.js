@@ -18,11 +18,11 @@ app.set('view engine', 'pug');
 // views = folder contains files
 app.set('views', './views');
 
-
 const db = require('./db');
 
 const userRoutes = require('./routes/user.route');
 const authRoutes = require('./routes/auth.route');
+const productRoutes = require('./routes/product.route');
 
 var authMiddleware = require('./middlewares/auth.middleware');
 
@@ -33,6 +33,8 @@ app.get('/', (req, res) => res.render('index', {
 
 app.use('/users', authMiddleware.requireAuth, userRoutes);
 app.use('/auth', authRoutes);
+// app.use('/products', authMiddleware.requireAuth, productRoutes); đoạn này nó redirect lại ra /users ?? goai :<<
+app.use('/products', productRoutes);
 
 app.use(express.static('public'));
 

@@ -1,0 +1,13 @@
+extends ../layouts/main
+
+block listProduct
+    h1.user-list-title Product List
+    div.row
+        each product in products
+            .col-md-3
+                .card.text-center
+                    img.card-img-top(src=product.image, alt='totorochan')
+                    .card-body
+                    h5.card-title= product.name
+                    p.card-text.product-description= product.description
+                    a.btn.btn-primary(href='#') See more

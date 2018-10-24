@@ -18,3 +18,11 @@ p.username {
     font-size: 18px;
     margin: 15px;
 }
+
+p.card-text.product-description {
+    color: #a29898bf;
+    font-size: 15px;
+    font-weight: 100;
+    margin: 0px 20px;
+    height: 130px;
+}
