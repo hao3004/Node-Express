@@ -12,3 +12,9 @@
     display: inline-block;
     color: teal;
 }
+
+p.username {
+    color: #fff;
+    font-size: 18px;
+    margin: 15px;
+}

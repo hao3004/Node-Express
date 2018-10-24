@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); 
 // for parsing application/x-www-form-urlencoded
-app.use(cookieParser());
+app.use(cookieParser('haolt566fg6vf6356gg'));
 const pug = require('pug');
 app.set('view engine', 'pug');
 // views = folder contains files
