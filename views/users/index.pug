@@ -13,11 +13,14 @@ block users
     a(href="/users/create", class="float-right") Create a new one !
     table.table.table-striped.table-dark.table-bordered.table-hover.users-table
         tr
+            th Avatar
             th Name
             th Phone
             th Option
         each user in users
             tr
+                td
+                    img(src=user.avatar, width="70px")
                 td= user.name
                 td= user.phone
                 td

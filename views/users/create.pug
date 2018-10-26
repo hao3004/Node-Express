@@ -7,7 +7,7 @@ block create
     if errors
         each error in errors
             .alert.alert-danger= error
-    form.form-inline(action="/users/create", method="POST")
+    form.form-inline(action="/users/create", method="POST", enctype="multipart/form-data")
         .input-group.mb-2.mr-sm-2
             .input-group-prepend
                 .input-group-text
@@ -18,5 +18,10 @@ block create
                 .input-group-text
                     i.fas.fa-blender-phone
             input.form-control(type='tel', name="phone", placeholder='Phone')
+        .input-group.mb-2.mr-sm-2
+            .input-group-prepend
+                .input-group-text
+                    i.fas.fa-file-upload
+            input.form-control(type='file', name="avatar")
         .input-group.mb-2.mr-sm-2
             button.btn.btn-info Create

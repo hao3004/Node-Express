@@ -1,4 +1,5 @@
 const express = require('express');
+var multer  = require('multer');
 const router = express.Router();
 
 const db = require('../db');
@@ -11,12 +12,16 @@ router.get('/', controller.index );
 //     res.cookie('user-id', 263);
 //     res.send('Hello cookie');
 // });
- 
+var upload = multer({ dest: './public/uploads/' })
 router.get('/search', controller.search );
 //link trong url
 router.get('/create', controller.getCreate);
 
-router.post('/create', validate.create, controller.create);
+router.post('/create', 
+    upload.single('avatar'), 
+    validate.create, 
+    controller.create
+);
 
 // keyword: express js routing 
 router.get('/:id', controller.details);
