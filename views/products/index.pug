@@ -10,4 +10,4 @@ block listProduct
                     .card-body
                     h5.card-title= product.name
                     p.card-text.product-description= product.description
-                    a.btn.btn-primary(href='#') See more
+                    a.btn.btn-primary(href='/cart/add/'+ product.id) Add to cart

@@ -23,8 +23,10 @@ const db = require('./db');
 const userRoutes = require('./routes/user.route');
 const authRoutes = require('./routes/auth.route');
 const productRoutes = require('./routes/product.route');
+const cartRoutes = require('./routes/cart.route');
 
 var authMiddleware = require('./middlewares/auth.middleware');
+var sessionMiddleware = require('./middlewares/session.middleware');
 
 app.get('/', (req, res) => res.render('index', {
     name: 'Lang Hoai An' // gửi data qua đây, bên kia sử dụng = cách: #{name}
@@ -33,9 +35,12 @@ app.get('/', (req, res) => res.render('index', {
 
 app.use('/users', authMiddleware.requireAuth, userRoutes);
 app.use('/auth', authRoutes);
-// app.use('/products', authMiddleware.requireAuth, productRoutes); đoạn này nó redirect lại ra /users ?? goai :<<
-app.use('/products', productRoutes);
-
+// app.use('/products', authMiddleware.requireAuth, productRoutes); 
+// đoạn này nó redirect lại ra /users ?? goai :<<
+app.use('/products',  productRoutes);
+app.use('/cart',  cartRoutes);
+app.use(sessionMiddleware.hasCookie);// ghi như này nghĩa là nó sẽ có ảnh hưởng 
+                            // tới các đường dẫn mà mình chỉ định
 app.use(express.static('public'));
 
 app.listen(port, () => console.log(`Hey you guys, haolt here :)) ${port}!`));
